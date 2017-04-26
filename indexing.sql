@@ -34,22 +34,44 @@ CREATE DATABASE indexed_cars;
   -- where make_code is 'LAM'
   -- should be 1 result
 
+SELECT DISTINCT make_title
+FROM car_models
+WHERE make_code = 'LAM';
+
 -- Run a query to list all model_title s
     -- where make_code is 'NISSAN'
     -- where model_code is 'GT-R'
     -- should be 1 result
 
--- Run a query to list all of make_code, model_code, model_title and year from car_models,
+SELECT DISTINCT model_title
+FROM car_models
+WHERE make_code = 'NISSAN' AND
+model_code = 'GT-R';
+
+-- Run a query to list all of make_code, model_code, model_title and year
+  -- from car_models,
   -- where the make_code is 'LAM'
-  -- should have 1360 rows
+  -- should have 1360 rows\q
+
+SELECT DISTINCT make_code, model_code, model_title, year
+FROM car_models
+WHERE make_code = 'LAM';
 
 -- Run a query to list all fields from car_models
   -- between 2010 and 2015
   -- should have 78840 rows
 
+SELECT DISTINCT *
+FROM car_models
+WHERE (year BETWEEN 2010 AND 2015);
+
+
 -- Run a query to list all fields from all car_models
   -- in the year of 2010
   -- should have 13140 rows
 
+SELECT DISTINCT *
+FROM car_models
+WHERE year = 2010;
 
 \q
